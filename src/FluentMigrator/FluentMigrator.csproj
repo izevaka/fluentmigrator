@@ -335,6 +335,8 @@
     <Compile Include="Builders\Create\Table\ICreateTableColumnAsTypeSyntax.cs" />
     <Compile Include="VersionTableInfo\IVersionTableMetaDataExtended.cs" />
     <Compile Include="VersionTableInfo\VersionTableMetaDataAttribute.cs" />
+    <Compile Include="VersionTableInfo\IVersionTableOwnsSchema.cs" />
+    <Compile Include="VersionTableInfo\IVersionTableHasUniqueIndex.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

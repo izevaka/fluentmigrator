@@ -21,7 +21,7 @@ using System;
 
 namespace FluentMigrator.VersionTableInfo
 {
-    public class DefaultVersionTableMetaData : IVersionTableMetaData, IVersionTableMetaDataExtended
+    public class DefaultVersionTableMetaData : IVersionTableMetaData, IVersionTableHasUniqueIndex, IVersionTableOwnsSchema
     {
         public virtual string SchemaName
         {
@@ -55,6 +55,10 @@ namespace FluentMigrator.VersionTableInfo
 
         public virtual bool OwnsSchema
         {
+            get { return true; }
+        }
+
+        public virtual bool HasUniqueIndex {
             get { return true; }
         }
     }

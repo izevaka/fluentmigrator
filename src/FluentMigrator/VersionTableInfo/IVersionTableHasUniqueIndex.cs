@@ -21,9 +21,9 @@ using System;
 
 namespace FluentMigrator.VersionTableInfo
 {
-    [Obsolete("IVersionTableMetaDataExtended is obsolete, use IVersionTableOwnsSchema instead.")]
-    public interface IVersionTableMetaDataExtended
+    
+    public interface IVersionTableHasUniqueIndex
     {
-        bool OwnsSchema { get; }
+        bool HasUniqueIndex { get; }
     }
 }

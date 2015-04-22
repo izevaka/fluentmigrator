@@ -76,13 +76,18 @@ namespace FluentMigrator.Runner.Versioning
 
         public override void Up()
         {
-            Create.Index(versionTableMeta.UniqueIndexName)
-                .OnTable(versionTableMeta.TableName)
-                .InSchema(versionTableMeta.SchemaName)
-                .WithOptions().Unique()
-                .WithOptions().Clustered()
-                .OnColumn(versionTableMeta.ColumnName);
+            IVersionTableHasUniqueIndex extendedMetadata = versionTableMeta as IVersionTableHasUniqueIndex;
+            bool hasUniqueIndex = extendedMetadata == null || extendedMetadata.HasUniqueIndex;
 
+            if (hasUniqueIndex)
+            {
+                Create.Index(versionTableMeta.UniqueIndexName)
+                    .OnTable(versionTableMeta.TableName)
+                    .InSchema(versionTableMeta.SchemaName)
+                    .WithOptions().Unique()
+                    .WithOptions().Clustered()
+                    .OnColumn(versionTableMeta.ColumnName);
+            }
             Alter.Table(versionTableMeta.TableName).InSchema(versionTableMeta.SchemaName).AddColumn(versionTableMeta.AppliedOnColumnName).AsDateTime().Nullable();
         }
 
