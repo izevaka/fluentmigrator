@@ -494,6 +494,7 @@
     <Compile Include="Unit\Generators\Redshift\RedshiftSchemaTests.cs" />
     <Compile Include="Unit\Generators\Redshift\RedshiftSequenceTests.cs" />
     <Compile Include="Unit\Generators\Redshift\RedshiftTableTests.cs" />
+    <Compile Include="Unit\Builders\Create\Extensions\CreateTableExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentMigrator.SchemaDump\FluentMigrator.SchemaDump.csproj">
@@ -609,5 +610,6 @@
   -->
   <ItemGroup>
     <Folder Include="Unit\Generators\Redshift\" />
+    <Folder Include="Unit\Builders\Create\Extensions\" />
   </ItemGroup>
 </Project>

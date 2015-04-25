@@ -302,6 +302,7 @@
     <Compile Include="Generators\PostgresBase\PostgresBaseDescriptionGenerator.cs" />
     <Compile Include="Generators\Postgres\PostgresDescriptionGenerator.cs" />
     <Compile Include="Generators\Redshift\RedshiftDescriptionGenerator.cs" />
+    <Compile Include="Extensions\Redshift\RedshiftExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentMigrator\FluentMigrator.csproj">
@@ -404,5 +405,6 @@
   <ItemGroup>
     <Folder Include="Processors\Redshift\" />
     <Folder Include="Generators\Postgres\" />
+    <Folder Include="Extensions\Redshift\" />
   </ItemGroup>
 </Project>

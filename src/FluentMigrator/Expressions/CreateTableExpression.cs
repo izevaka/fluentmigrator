@@ -29,10 +29,16 @@ namespace FluentMigrator.Expressions
         public virtual string TableName { get; set; }
         public virtual IList<ColumnDefinition> Columns { get; set; }
         public virtual string TableDescription { get; set; }
+        public readonly Dictionary<string, object> _additionalFeatures = new Dictionary<string, object>();
 
         public CreateTableExpression()
         {
             Columns = new List<ColumnDefinition>();
+        }
+
+        public IDictionary<string, object> AdditionalFeatures
+        {
+            get { return _additionalFeatures; }
         }
 
         public override void ApplyConventions(IMigrationConventions conventions)

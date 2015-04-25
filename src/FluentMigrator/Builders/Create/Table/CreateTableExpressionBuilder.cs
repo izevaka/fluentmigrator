@@ -29,7 +29,8 @@ namespace FluentMigrator.Builders.Create.Table
                                                 ICreateTableWithColumnOrSchemaOrDescriptionSyntax,
                                                 ICreateTableColumnAsTypeSyntax,
                                                 ICreateTableColumnOptionOrForeignKeyCascadeOrWithColumnSyntax,
-                                                IColumnExpressionBuilder
+                                                IColumnExpressionBuilder,
+    ISupportAdditionalFeatures
     {
         private readonly IMigrationContext _context;
 
@@ -288,5 +289,11 @@ namespace FluentMigrator.Builders.Create.Table
                 return CurrentColumn;
             }
         }
+
+        void ISupportAdditionalFeatures.AddAdditionalFeature(string feature, object value)
+        {
+            Expression.AdditionalFeatures[feature] = value;
+        }
+
     }
 }
