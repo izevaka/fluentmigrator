@@ -4,6 +4,7 @@ using System.Data;
 using FluentMigrator.Model;
 using FluentMigrator.Runner.Generators.Base;
 using FluentMigrator.Runner.Generators.PostgresBase;
+using FluentMigrator.Runner.Extensions;
 
 namespace FluentMigrator.Runner.Generators.Redshift
 {
@@ -11,6 +12,7 @@ namespace FluentMigrator.Runner.Generators.Redshift
     {
         public RedshiftColumn() : base(new RedshiftTypeMap(), new RedshiftQuoter()) 
         {
+            ClauseOrder.Add(FormatSortKey);
         }
 
         protected override string FormatSystemMethods(SystemMethods systemMethod)
@@ -28,5 +30,25 @@ namespace FluentMigrator.Runner.Generators.Redshift
             throw new NotImplementedException(string.Format("System method {0} is not implemented.", systemMethod));
         }
 
+        protected string FormatSortKey(ColumnDefinition column)
+        {
+            object sortKeyObj;
+            if (!column.AdditionalFeatures.TryGetValue(RedshiftExtensions.ColumnSortKeyKey, out sortKeyObj))
+            {
+                return string.Empty;
+            }
+
+            if (sortKeyObj == null)
+            {   
+                return string.Empty;
+            }
+
+            var isSortKey = (bool)sortKeyObj;
+            if (isSortKey)
+                return "SORTKEY"; 
+                  
+
+            return string.Empty;
+        }
     }
 }

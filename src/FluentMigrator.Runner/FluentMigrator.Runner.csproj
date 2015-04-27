@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CB468AD6-60C2-42E9-B3B0-01968EF94C65}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -101,6 +99,7 @@
     <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -113,7 +112,6 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.configuration" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -122,6 +120,7 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SolutionInfo.cs">
@@ -302,7 +301,7 @@
     <Compile Include="Generators\PostgresBase\PostgresBaseDescriptionGenerator.cs" />
     <Compile Include="Generators\Postgres\PostgresDescriptionGenerator.cs" />
     <Compile Include="Generators\Redshift\RedshiftDescriptionGenerator.cs" />
-    <Compile Include="Extensions\Redshift\RedshiftExtensions.cs" />
+    <Compile Include="Extensions\RedshiftExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentMigrator\FluentMigrator.csproj">
@@ -405,6 +404,5 @@
   <ItemGroup>
     <Folder Include="Processors\Redshift\" />
     <Folder Include="Generators\Postgres\" />
-    <Folder Include="Extensions\Redshift\" />
   </ItemGroup>
 </Project>

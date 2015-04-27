@@ -6,7 +6,7 @@ using FluentMigrator.Expressions;
 using FluentMigrator.Model;
 using FluentMigrator.Runner.Generators.Generic;
 using FluentMigrator.Runner.Generators.PostgresBase;
-using FluentMigrator.Runner.Extensions.Redshift;
+using FluentMigrator.Runner.Extensions;
 
 namespace FluentMigrator.Runner.Generators.Redshift
 {

@@ -5,7 +5,7 @@ using FluentMigrator.Model;
 using FluentMigrator.Runner.Generators.Redshift;
 using NUnit.Framework;
 using NUnit.Should;
-using FluentMigrator.Runner.Extensions.Redshift;
+using FluentMigrator.Runner.Extensions;
 
 namespace FluentMigrator.Tests.Unit.Generators.Redshift
 {
@@ -163,6 +163,16 @@ namespace FluentMigrator.Tests.Unit.Generators.Redshift
 
             var result = Generator.Generate(expression);
             result.ShouldBe("CREATE TABLE \"public\".\"TestTable1\" (\"TestColumn1\" text NOT NULL, \"TestColumn2\" integer NOT NULL) DISTSTYLE ALL");
+        }
+
+        [Test]
+        public void SortKeyShouldAddSortKeyToColumn()
+        {
+            var expression = GeneratorTestHelper.GetCreateTableExpression();
+            expression.Columns[0].AdditionalFeatures.Add(RedshiftExtensions.ColumnSortKeyKey, true);
+
+            var result = Generator.Generate(expression);
+            result.ShouldBe("CREATE TABLE \"public\".\"TestTable1\" (\"TestColumn1\" text NOT NULL SORTKEY, \"TestColumn2\" integer NOT NULL)");
         }
     }
 }

@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{5DFD1A3B-7258-4C05-88F9-02A1EA3F5D9C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -113,18 +111,10 @@
     <Reference Include="Oracle.DataAccess">
       <HintPath>..\..\lib\Oracle.DataAccess.dll</HintPath>
     </Reference>
-    <Reference Include="Sap.Data.Hana.v3.5, Version=1.0.80.0, Culture=neutral, PublicKeyToken=0326b8ea63db4bc4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\Hana\Sap.Data.Hana.v3.5.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Moq">
@@ -142,19 +132,6 @@
     <Reference Include="nunit.should">
       <HintPath>..\..\lib\nunit.should.dll</HintPath>
     </Reference>
-    <Reference Include="Oracle.DataAccess">
-      <HintPath>..\..\lib\Oracle.DataAccess.dll</HintPath>
-    </Reference>
-    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
-      <HintPath>..\..\lib\Oracle.ManagedDataAccess.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Data.SQLite, Version=1.0.48.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -163,6 +140,12 @@
     </Reference>
     <Reference Include="System.Data.SqlServerCe">
       <HintPath>..\..\lib\SQLServerCE4\Private\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="Sap.Data.Hana.v3.5">
+      <HintPath>..\..\lib\Hana\Sap.Data.Hana.v3.5.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess">
+      <HintPath>..\..\lib\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -494,7 +477,7 @@
     <Compile Include="Unit\Generators\Redshift\RedshiftSchemaTests.cs" />
     <Compile Include="Unit\Generators\Redshift\RedshiftSequenceTests.cs" />
     <Compile Include="Unit\Generators\Redshift\RedshiftTableTests.cs" />
-    <Compile Include="Unit\Builders\Create\Extensions\CreateTableExtensionsTests.cs" />
+    <Compile Include="Unit\Builders\Create\Extensions\RedshiftExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FluentMigrator.SchemaDump\FluentMigrator.SchemaDump.csproj">
